@@ -1,0 +1,25 @@
+name: HTML Website CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          echo "Success! index.html exists."
+
+      - name: Display success message
+        run: echo "CI workflow completed successfully!"
